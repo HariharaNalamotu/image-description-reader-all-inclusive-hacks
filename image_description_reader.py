@@ -8,27 +8,17 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import time
 
-print("import statements done")
-
 time.sleep(10)
 
 while __name__ == '__main__':
     failed = False
-    print("x")
     app = Application(backend='uia')
-    print("x")
     app.connect(title_re=".*Chrome.*", visible_only=True)
-    print("x")
     element_name="Address and search bar"
-    print("x")
     dlg = app.top_window()
-    print("x")
     open_url = dlg.child_window(title=element_name, control_type="Edit").get_value()
-    print('https://'+open_url)
     response = requests.get('https://'+open_url)
-    print("x")
     print("window url recieved")
-    print("x")
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
         img_tags = soup.find_all('img')
@@ -38,18 +28,14 @@ while __name__ == '__main__':
             if src:
                 absolute_url = urljoin(open_url, src)
                 image_urls.append(absolute_url)
-                print(absolute_url)
-                print("image gotten")
 
     else:
         failed = True
-        print("images not gotten")
 
     if not failed:
         url = "https://image-caption-generator2.p.rapidapi.com/v2/captions"
         for image_url in image_urls[1:-2]:
             print(image_url)
-            print(open_url)
             querystring = {"imageUrl":image_url,"useEmojis":"false","useHashtags":"false","limit":"3"}
     
             headers = {
