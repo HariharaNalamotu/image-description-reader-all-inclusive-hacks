@@ -3,7 +3,6 @@ from gtts import gTTS
 import os
 import time
 from pywinauto import Application
-import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import time
