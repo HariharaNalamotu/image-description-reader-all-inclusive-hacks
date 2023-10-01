@@ -1,2 +1,4 @@
 # image-description-reader-all-inclusive-hacks
 Project for All Inclusive Hacks Hackathon
+
+For the code to run properly certain conditions have to be met. The application only works on Google Chrome tabs. The application only works when there is one window open, all others need to be minimized or closed. The application has multiple dependencies that need to be installed before running: requests, gtts, os, time, pywinauto, bs4, urllib.parse, and time. Note, some of these may come pre-installed with Python. The application may not work if the website has blocked scraping. You may not be able to see the image the application is describing because the first image found in the code may be small and irrelevant. Google Images is the best place to test the application (imho). On Google Images, the image described first is the top left, and it goes from left to right.
